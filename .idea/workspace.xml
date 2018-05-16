@@ -108,6 +108,9 @@
       <find>pred</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -146,6 +149,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1050" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -223,27 +227,26 @@
       <workItem from="1526209551819" duration="11671000" />
       <workItem from="1526395672291" duration="4863000" />
       <workItem from="1526401265152" duration="7852000" />
-      <workItem from="1526461093404" duration="12565000" />
+      <workItem from="1526461093404" duration="12817000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36951000" />
+    <option name="totallyTimeSpent" value="37203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49525318" visible="true" weight="0.109375" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4952381" visible="true" weight="0.109375" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32979852" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32979852" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32979852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32979852" />
-      <window_info id="Favorites" order="2" sideWeight="0.50474685" side_tool="true" visible="true" weight="0.109375" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33049947" />
+      <window_info id="Favorites" order="2" sideWeight="0.50476193" side_tool="true" visible="true" weight="0.109375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997879" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

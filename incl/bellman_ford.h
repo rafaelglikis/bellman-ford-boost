@@ -1,0 +1,4 @@
+#ifndef BF_BELLMAN_FORD_H
+#define BF_BELLMAN_FORD_H
+
+#endif //BF_BELLMAN_FORD_H

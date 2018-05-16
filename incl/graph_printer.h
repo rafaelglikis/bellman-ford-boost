@@ -28,7 +28,7 @@ edge_writer < Graph, Parent > make_edge_writer(const Graph & g, const Parent & p
 
 // Graph Viz Printers
 void printGraphVizToFile(Graph, std::string);
-void printGraphShortestPathVizToFile(Graph, std::vector<std::size_t>);
+void printGraphShortestPathVizToFile(Graph, std::vector<std::size_t>, std::string);
 
 // cli printers
 void printGraphShortestPath(Graph, std::vector<int>, std::vector<std::size_t>);

@@ -8,98 +8,112 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug"/>
+				<Option working_dir="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug"/>
+				<Option working_dir="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="hw2">
-				<Option output="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/hw2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug"/>
+				<Option output="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/hw2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include"/>
+					<Add directory="/home/rafael/Desktop/algo-eng-bellman-ford/incl"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2"/>
-					<CompileFile command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="hw2/fast">
-				<Option output="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/hw2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug"/>
+				<Option output="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/hw2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/../../../../include/c++/7.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include"/>
+					<Add directory="/home/rafael/Desktop/algo-eng-bellman-ford/incl"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.3.1/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2/fast"/>
-					<CompileFile command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/bin/make -j4 -f &quot;/home/rafael/MEGA/CEID/8ο\ ΕΞ/Τεχνολογίες\ Υλοποίησης\ Αλγορύθμων/projects/hw2/hw2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 hw2/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_creator.h">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford.h">
 			<Option target="hw2"/>
 		</Unit>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_printer.h">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_test.h">
 			<Option target="hw2"/>
 		</Unit>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/graph_creator.cpp">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_creator.h">
 			<Option target="hw2"/>
 		</Unit>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/graph_printer.cpp">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_printer.h">
 			<Option target="hw2"/>
 		</Unit>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/main.cpp">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford.cpp">
 			<Option target="hw2"/>
 		</Unit>
-		<Unit filename="/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/CMakeLists.txt">
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford_test.cpp">
+			<Option target="hw2"/>
+		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/graph_creator.cpp">
+			<Option target="hw2"/>
+		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/graph_printer.cpp">
+			<Option target="hw2"/>
+		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/main.cpp">
+			<Option target="hw2"/>
+		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

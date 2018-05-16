@@ -1,5 +1,6 @@
 graph.*
 bellman-eg.*
+bf-result.*
 build/*.o
 
 # User-specific stuff

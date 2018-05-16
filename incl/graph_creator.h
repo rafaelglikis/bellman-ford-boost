@@ -28,6 +28,10 @@ typedef boost::property_map<Graph, int EdgeProperties::*>::type WeightMap;
 Graph createRandomGraph(unsigned long, unsigned long, int, int);
 Graph createGridGraph(int, int, int);
 
+// Test Graphs
+Graph createTestGraph();
+Graph createPositiveTestGraph();
+Graph createTestGraphWithNegativeCycle();
 
 
 // Helper Funtions

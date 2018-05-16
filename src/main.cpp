@@ -1,10 +1,3 @@
-//=======================================================================
-// Copyright 2001 Jeremy G. Siek, Andrew Lumsdaine, Lie-Quan Lee, 
-//
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-//=======================================================================
 #include <boost/config.hpp>
 #include <vector>
 #include <iostream>
@@ -15,14 +8,30 @@
 
 #include "../incl/graph_creator.h"
 #include "../incl/graph_printer.h"
+#include "../incl/bellman_ford_test.h"
+
 
 using namespace boost;
 
 const int INF = (std::numeric_limits < int >::max)();
 
-int main()
+int main(int argc, char **argv)
 {
-    Graph g = createRandomGraph(10, 10, -100, 10000 );
+    if (argc==2 && (std::string(argv[1])=="test")){
+        std::cout << "[i] Running all tests" << std::endl;
+        std::cout << "[i] Testing Graph with positive weights" << std::endl;
+        test(createTestGraph());
+        std::cout << "[i] Testing Graph with positive and negative weights" << std::endl;
+        test(createPositiveTestGraph());
+        std::cout << "[i] Testing Graph with negative cycle" << std::endl;
+        test(createTestGraphWithNegativeCycle());
+        return 0;
+    } else if (argc==2 && std::string(argv[1])=="benchmark"){
+        std::cout << "[i] Running all benchmarks" << std::endl;
+        return 0;
+    }
+
+    Graph g = createGridGraph(10, -100, 10000);
     WeightMap weight_pmap = get(&EdgeProperties::weight, g);
     unsigned long  n_vertices = num_vertices(g);
 
@@ -40,11 +49,10 @@ int main()
 
     if (r) {
         printGraphShortestPath(g, distance, pred);
+        printGraphShortestPathVizToFile(g, pred, "bf-result.dot");
     } else {
         std::cout << "negative cycle detected" << std::endl;
     }
-
-    //printGraphShortestPath(g, pred);
 
     return EXIT_SUCCESS;
 }

@@ -21,11 +21,11 @@ void edge_writer<Graph, ParentMap>::operator() (std::ostream & out, const Edge &
     out << "]";
 }
 
-void printGraphShortestPathVizToFile(Graph g, std::vector<std::size_t> pred)
+void printGraphShortestPathVizToFile(Graph g, std::vector<std::size_t> pred, std::string filename)
 {
     EdgeIterator ei, ei_end;
 
-    std::ofstream dot_file("bellman-eg.dot");
+    std::ofstream dot_file(filename);
     dot_file << "digraph D {\n"
              << "  rankdir=LR\n"
              << "  size=\"5,3\"\n"

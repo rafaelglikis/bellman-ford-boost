@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.8)
 project(hw2)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -11,6 +11,8 @@ IF (Boost_FOUND)
 endif()
 
 add_executable(hw2
-        incl/graph_creator.h
-        src/graph_creator.cpp
-        src/main.cpp src/graph_printer.cpp incl/graph_printer.h)
+        src/main.cpp
+        src/graph_creator.cpp incl/graph_creator.h
+        src/graph_printer.cpp incl/graph_printer.h
+        src/bellman_ford.cpp incl/bellman_ford.h
+        src/bellman_ford_test.cpp incl/bellman_ford_test.h)

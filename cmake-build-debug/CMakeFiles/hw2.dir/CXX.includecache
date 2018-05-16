@@ -6,11 +6,61 @@
 
 #IncludeRegexTransform: 
 
+../incl/bellman_ford.h
+boost/config.hpp
+-
+boost/graph/graph_traits.hpp
+-
+boost/graph/graph_concepts.hpp
+-
+boost/graph/properties.hpp
+-
+boost/graph/relax.hpp
+-
+boost/graph/visitors.hpp
+-
+boost/graph/named_function_params.hpp
+-
+boost/concept/assert.hpp
+-
+../incl/graph_creator.h
+../incl/graph_creator.h
+
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford.h
+boost/config.hpp
+-
+boost/graph/graph_traits.hpp
+-
+boost/graph/graph_concepts.hpp
+-
+boost/graph/properties.hpp
+-
+boost/graph/relax.hpp
+-
+boost/graph/visitors.hpp
+-
+boost/graph/named_function_params.hpp
+-
+boost/concept/assert.hpp
+-
+../incl/graph_creator.h
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_creator.h
+
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_benchmark.h
+../incl/graph_creator.h
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_creator.h
+boost/graph/bellman_ford_shortest_paths.hpp
+-
+bellman_ford.h
+-
+
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_test.h
 ../incl/graph_creator.h
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_creator.h
 ../incl/graph_printer.h
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_printer.h
+../incl/bellman_ford.h
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford.h
 boost/graph/bellman_ford_shortest_paths.hpp
 -
 
@@ -46,6 +96,10 @@ graph_creator.h
 
 /home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford.cpp
 
+/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford_benchmark.cpp
+../incl/bellman_ford_benchmark.h
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_benchmark.h
+
 /home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford_test.cpp
 ../incl/bellman_ford_test.h
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_test.h
@@ -79,4 +133,6 @@ boost/graph/bellman_ford_shortest_paths.hpp
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/graph_printer.h
 ../incl/bellman_ford_test.h
 /home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_test.h
+../incl/bellman_ford_benchmark.h
+/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_benchmark.h
 

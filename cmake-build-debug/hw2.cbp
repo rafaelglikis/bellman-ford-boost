@@ -89,6 +89,9 @@
 		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford.h">
 			<Option target="hw2"/>
 		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_benchmark.h">
+			<Option target="hw2"/>
+		</Unit>
 		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/incl/bellman_ford_test.h">
 			<Option target="hw2"/>
 		</Unit>
@@ -99,6 +102,9 @@
 			<Option target="hw2"/>
 		</Unit>
 		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford.cpp">
+			<Option target="hw2"/>
+		</Unit>
+		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford_benchmark.cpp">
 			<Option target="hw2"/>
 		</Unit>
 		<Unit filename="/home/rafael/Desktop/algo-eng-bellman-ford/src/bellman_ford_test.cpp">

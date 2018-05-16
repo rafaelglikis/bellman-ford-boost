@@ -150,6 +150,33 @@ src/bellman_ford.cpp.s:
 	$(MAKE) -f CMakeFiles/hw2.dir/build.make CMakeFiles/hw2.dir/src/bellman_ford.cpp.s
 .PHONY : src/bellman_ford.cpp.s
 
+src/bellman_ford_benchmark.o: src/bellman_ford_benchmark.cpp.o
+
+.PHONY : src/bellman_ford_benchmark.o
+
+# target to build an object file
+src/bellman_ford_benchmark.cpp.o:
+	$(MAKE) -f CMakeFiles/hw2.dir/build.make CMakeFiles/hw2.dir/src/bellman_ford_benchmark.cpp.o
+.PHONY : src/bellman_ford_benchmark.cpp.o
+
+src/bellman_ford_benchmark.i: src/bellman_ford_benchmark.cpp.i
+
+.PHONY : src/bellman_ford_benchmark.i
+
+# target to preprocess a source file
+src/bellman_ford_benchmark.cpp.i:
+	$(MAKE) -f CMakeFiles/hw2.dir/build.make CMakeFiles/hw2.dir/src/bellman_ford_benchmark.cpp.i
+.PHONY : src/bellman_ford_benchmark.cpp.i
+
+src/bellman_ford_benchmark.s: src/bellman_ford_benchmark.cpp.s
+
+.PHONY : src/bellman_ford_benchmark.s
+
+# target to generate assembly for a file
+src/bellman_ford_benchmark.cpp.s:
+	$(MAKE) -f CMakeFiles/hw2.dir/build.make CMakeFiles/hw2.dir/src/bellman_ford_benchmark.cpp.s
+.PHONY : src/bellman_ford_benchmark.cpp.s
+
 src/bellman_ford_test.o: src/bellman_ford_test.cpp.o
 
 .PHONY : src/bellman_ford_test.o
@@ -270,6 +297,9 @@ help:
 	@echo "... src/bellman_ford.o"
 	@echo "... src/bellman_ford.i"
 	@echo "... src/bellman_ford.s"
+	@echo "... src/bellman_ford_benchmark.o"
+	@echo "... src/bellman_ford_benchmark.i"
+	@echo "... src/bellman_ford_benchmark.s"
 	@echo "... src/bellman_ford_test.o"
 	@echo "... src/bellman_ford_test.i"
 	@echo "... src/bellman_ford_test.s"

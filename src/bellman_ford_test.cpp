@@ -23,7 +23,7 @@ void test(Graph g)
                                                            std::less<int>(),
                                                            boost::default_bellman_visitor());
 
-    bool my_result = boost::bellman_ford_shortest_paths(g, int(N), weight_pmap,
+    bool my_result = bf::bellman_ford_shortest_paths(g, int(N), weight_pmap,
                                                         &mParent[0], &mDistance[0],
                                                         boost::closed_plus<int>(),
                                                         std::less<int>(),

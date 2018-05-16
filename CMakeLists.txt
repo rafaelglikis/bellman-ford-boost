@@ -15,4 +15,4 @@ add_executable(hw2
         src/graph_creator.cpp incl/graph_creator.h
         src/graph_printer.cpp incl/graph_printer.h
         src/bellman_ford.cpp incl/bellman_ford.h
-        src/bellman_ford_test.cpp incl/bellman_ford_test.h)
+        src/bellman_ford_test.cpp incl/bellman_ford_test.h incl/bellman_ford_benchmark.h src/bellman_ford_benchmark.cpp)

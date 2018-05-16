@@ -1,0 +1,5 @@
+/home/rafael/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2"
+-- Boost version: 1.66.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/cmake-build-debug

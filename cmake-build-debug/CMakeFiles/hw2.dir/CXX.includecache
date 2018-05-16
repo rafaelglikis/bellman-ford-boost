@@ -1,0 +1,66 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_creator.h
+boost/graph/adjacency_list.hpp
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/boost/graph/adjacency_list.hpp
+boost/graph/random.hpp
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/boost/graph/random.hpp
+boost/random/mersenne_twister.hpp
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/boost/random/mersenne_twister.hpp
+boost/graph/make_connected.hpp
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/boost/graph/make_connected.hpp
+boost/graph/iteration_macros.hpp
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/boost/graph/iteration_macros.hpp
+
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_printer.h
+boost/config.hpp
+-
+vector
+-
+iostream
+-
+fstream
+-
+iomanip
+-
+boost/graph/adjacency_list.hpp
+-
+boost/graph/bellman_ford_shortest_paths.hpp
+-
+graph_creator.h
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_creator.h
+
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/graph_creator.cpp
+../incl/graph_creator.h
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_creator.h
+
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/graph_printer.cpp
+../incl/graph_printer.h
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_printer.h
+
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/src/main.cpp
+boost/config.hpp
+-
+vector
+-
+iostream
+-
+fstream
+-
+iomanip
+-
+boost/graph/adjacency_list.hpp
+-
+boost/graph/bellman_ford_shortest_paths.hpp
+-
+../incl/graph_creator.h
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_creator.h
+../incl/graph_printer.h
+/home/rafael/MEGA/CEID/8ο ΕΞ/Τεχνολογίες Υλοποίησης Αλγορύθμων/projects/hw2/hw2/incl/graph_printer.h
+

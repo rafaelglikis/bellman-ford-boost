@@ -1,0 +1,1 @@
+/bin/c++  -g   CMakeFiles/hw2.dir/src/graph_creator.cpp.o CMakeFiles/hw2.dir/src/main.cpp.o CMakeFiles/hw2.dir/src/graph_printer.cpp.o  -o hw2 

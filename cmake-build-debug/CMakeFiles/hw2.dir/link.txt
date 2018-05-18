@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/hw2.dir/src/main.cpp.o CMakeFiles/hw2.dir/src/graph_creator.cpp.o CMakeFiles/hw2.dir/src/graph_printer.cpp.o CMakeFiles/hw2.dir/src/bellman_ford.cpp.o CMakeFiles/hw2.dir/src/bellman_ford_test.cpp.o CMakeFiles/hw2.dir/src/bellman_ford_benchmark.cpp.o  -o hw2 
+/bin/c++  -g   CMakeFiles/hw2.dir/src/main.cpp.o CMakeFiles/hw2.dir/src/graph_creator.cpp.o CMakeFiles/hw2.dir/src/graph_printer.cpp.o CMakeFiles/hw2.dir/src/bellman_ford.cpp.o CMakeFiles/hw2.dir/src/bellman_ford_test.cpp.o CMakeFiles/hw2.dir/src/bellman_ford_benchmark.cpp.o  -o hw2 

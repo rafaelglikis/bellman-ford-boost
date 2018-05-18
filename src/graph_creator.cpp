@@ -3,6 +3,7 @@
 Graph createRandomGraph(unsigned long verices, unsigned long edges, int cost_min, int cost_max)
 {
     Graph G;
+    EdgeIterator ei, ei_end;
 
     // Generating Random connected graph
     boost::mt19937 gen;
@@ -11,13 +12,12 @@ Graph createRandomGraph(unsigned long verices, unsigned long edges, int cost_min
 
     // Converting to EdgeList graph
     std::vector<std::pair<Graph::vertex_descriptor, Graph::vertex_descriptor> > pairlist;
-    for (auto ed : boost::make_iterator_range(boost::edges(G))) {
-        pairlist.emplace_back(source(ed, G), target(ed, G));
+    for (boost::tie(ei, ei_end) = boost::edges(G); ei!=ei_end; ++ei) {
+        pairlist.emplace_back(source(*ei, G), target(*ei, G));
     }
     Graph g(pairlist.begin(), pairlist.end(), num_vertices(G));
 
     // Adding weights
-    EdgeIterator ei, ei_end;
     for(boost::tie(ei, ei_end) = boost::edges(g); ei != ei_end; ++ei) {
         g[*ei].weight = randomRange(cost_min, cost_max);
     }
@@ -27,7 +27,9 @@ Graph createRandomGraph(unsigned long verices, unsigned long edges, int cost_min
 
 Graph createGridGraph(int n, int cost_min, int cost_max)
 {
-    Graph G; 
+    Graph G;
+    EdgeIterator ei, ei_end;
+
     for (int i = 0; i < n*n-1; ++i) {
         if( i%n == n-1) continue;
             
@@ -61,13 +63,12 @@ Graph createGridGraph(int n, int cost_min, int cost_max)
 
     // Converting to EdgeList graph
     std::vector<std::pair<Graph::vertex_descriptor, Graph::vertex_descriptor> > pairlist;
-    for (auto ed : boost::make_iterator_range(boost::edges(G))) {
-        pairlist.emplace_back(source(ed, G), target(ed, G));
+    for (boost::tie(ei, ei_end) = boost::edges(G); ei!=ei_end; ++ei) {
+        pairlist.emplace_back(source(*ei, G), target(*ei, G));
     }
     Graph g(pairlist.begin(), pairlist.end(), num_vertices(G));
 
     // Adding weights
-    EdgeIterator ei, ei_end;
     for(boost::tie(ei, ei_end) = boost::edges(g); ei != ei_end; ++ei) {
         g[*ei].weight = randomRange(cost_min, cost_max);
     }

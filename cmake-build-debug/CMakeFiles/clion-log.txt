@@ -1,5 +1,19 @@
-/home/rafael/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/172.4343.16/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rafael/Desktop/algo-eng-bellman-ford
--- Boost version: 1.58.0
+/home/rafael/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rafael/Desktop/algo-eng-bellman-ford
+-- The C compiler identification is GNU 7.3.1
+-- The CXX compiler identification is GNU 7.3.1
+-- Check for working C compiler: /bin/cc
+-- Check for working C compiler: /bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /bin/c++
+-- Check for working CXX compiler: /bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Boost version: 1.66.0
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug

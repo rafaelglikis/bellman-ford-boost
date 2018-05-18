@@ -137,6 +137,27 @@ Graph createTestGraphWithNegativeCycle()
     return g;
 }
 
+leda::GRAPH<unsigned, long> convertToLeda(Graph g)
+{
+    leda::GRAPH<unsigned, long> newGraph;
+    std::vector<leda::node> newVertices(num_vertices(g));
+
+    VertexIterator ni, ni_end;
+    for (tie(ni, ni_end) = vertices(g); ni != ni_end; ++ni) {
+        newVertices[*ni] = newGraph.new_node();
+    }
+
+    EdgeIterator ei, ei_end;
+    for (tie(ei, ei_end) = edges(g); ei != ei_end; ++ei) {
+        leda::edge e = newGraph.new_edge(
+            newVertices[source(*ei, g)], 
+            newVertices[target(*ei, g)], 
+            g[*ei].weight);
+    }
+
+    return newGraph;
+}
+
 int randomRange(int min, int max) //range : [min, max)
 {
    static bool first = true;

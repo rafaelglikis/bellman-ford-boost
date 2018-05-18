@@ -7,8 +7,10 @@
 #include "boost/graph/make_connected.hpp"
 #include "boost/graph/iteration_macros.hpp"
 
+#include <LEDA/graph/graph.h>
 
-struct EdgeProperties {
+struct EdgeProperties 
+{
     int weight;
 };
 
@@ -33,8 +35,8 @@ Graph createTestGraph();
 Graph createPositiveTestGraph();
 Graph createTestGraphWithNegativeCycle();
 
-
-// Helper Funtions
+// Utilities
 int randomRange(int, int);
+leda::GRAPH<unsigned, long> convertToLeda(Graph g);
 
 #endif //BF_GRAPH_H

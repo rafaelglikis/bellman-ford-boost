@@ -3,6 +3,8 @@ bellman-eg.*
 bf-result.*
 build/*.o
 
+.vscode/
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml

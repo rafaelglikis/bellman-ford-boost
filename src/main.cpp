@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/bellman_ford_shortest_paths.hpp>
 
@@ -25,7 +26,9 @@ int main(int argc, char **argv)
         testBF(createPositiveTestGraph());
         std::cout << "[i] Testing Graph with negative cycle" << std::endl;
         testBF(createTestGraphWithNegativeCycle());
+    
         return 0;
+
     } else if (argc==2 && std::string(argv[1])=="benchmark"){
         std::cout << "[i] Running all benchmarks" << std::endl;
         std::cout << "[i] Random Graphs" << std::endl;
@@ -43,34 +46,54 @@ int main(int argc, char **argv)
         benchmark(createGridGraph(200, -100, 10000));
         std::cout << "[i] Graph 300x300" << std::endl;
         benchmark(createGridGraph(200, -100, 10000));
+
         return 0;
     }
 
-    Graph g = createGridGraph(10, -100, 10000);
+    Graph g = createTestGraph();
+    
     WeightMap weight_pmap = get(&EdgeProperties::weight, g);
     unsigned long  n_vertices = num_vertices(g);
 
     std::vector<int> distance(n_vertices, INF);
-    std::vector<std::size_t> pred(n_vertices);
-    for (std::size_t i = 0; i < n_vertices; ++i) pred[i] = i;
+    std::vector<std::size_t> b_pred(n_vertices);
+    for (std::size_t i = 0; i < n_vertices; ++i) b_pred[i] = i;
     distance[0] = 0;
 
     bool r = bellman_ford_shortest_paths(g, n_vertices, weight_pmap,
-                                         &pred[0], &distance[0],
+                                         &b_pred[0], &distance[0],
                                          closed_plus<int>(),
                                          std::less<int>(),
                                          default_bellman_visitor());
 
-//    bool r = bellman_ford_shortest_paths
-//            (g, int (num_vertices(g)), weight_map(weight_pmap).distance_map(&distance[0]).
-//                    predecessor_map(&pred[0]));
 
     if (r) {
-        printGraphShortestPath(g, distance, pred);
-        printGraphShortestPathVizToFile(g, pred, "bf-result.dot");
+        printGraphShortestPath(g, distance, b_pred);
     } else {
         std::cout << "negative cycle detected" << std::endl;
     }
 
-    return EXIT_SUCCESS;
+    leda::GRAPH<unsigned, long>  G = convertToLeda(g);
+    leda::edge_array<long> cost = G.edge_data();
+    leda::node_array<leda::edge> pred(G);  
+    leda::node_array<long> dist(G);
+
+    leda::node startNode = G.first_node();
+
+    bool no_negative_cycle = leda::BELLMAN_FORD_B_T(G, startNode, cost, dist, pred);
+
+    leda::node v;
+    forall_nodes(v,G) {
+        G.print_node(v);
+        if (pred[v]==nil) {
+            std::cout << " is unreachable." << std::endl;
+        }
+        else {
+            std::cout << " " << dist[v] << " "; 
+            G.print_edge(pred[v]);
+            std::cout << std::endl;
+        }
+    }
+
+    return 0;
 }

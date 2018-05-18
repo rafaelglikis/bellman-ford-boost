@@ -1,5 +1,5 @@
 CC=g++
-FLAGS=-O3 -std=c++11
+FLAGS=-O3 -std=c++0x
 LIB=-lleda
 
 SOURCES=$(wildcard src/*.cpp)

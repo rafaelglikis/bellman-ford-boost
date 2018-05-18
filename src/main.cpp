@@ -20,11 +20,11 @@ int main(int argc, char **argv)
     if (argc==2 && (std::string(argv[1])=="test")){
         std::cout << "[i] Running all tests" << std::endl;
         std::cout << "[i] Testing Graph with positive weights" << std::endl;
-        test(createTestGraph());
+        testBF(createTestGraph());
         std::cout << "[i] Testing Graph with positive and negative weights" << std::endl;
-        test(createPositiveTestGraph());
+        testBF(createPositiveTestGraph());
         std::cout << "[i] Testing Graph with negative cycle" << std::endl;
-        test(createTestGraphWithNegativeCycle());
+        testBF(createTestGraphWithNegativeCycle());
         return 0;
     } else if (argc==2 && std::string(argv[1])=="benchmark"){
         std::cout << "[i] Running all benchmarks" << std::endl;

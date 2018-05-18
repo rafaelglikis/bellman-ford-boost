@@ -8,6 +8,6 @@
 
 
 // Tests
-void test(Graph g);
+void testBF(Graph g);
 
 #endif //BF_BELLMAN_FORD_TEST_CPP_H

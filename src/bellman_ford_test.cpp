@@ -1,6 +1,6 @@
 #include "../incl/bellman_ford_test.h"
 
-void test(Graph g)
+void testBF(Graph g)
 {
     unsigned long  N = num_vertices(g);
     WeightMap weight_pmap = get(&EdgeProperties::weight, g);

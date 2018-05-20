@@ -28,10 +28,11 @@ edge_writer < Graph, Parent > make_edge_writer(const Graph & g, const Parent & p
 
 // Graph Viz Printers
 void printGraphVizToFile(Graph, std::string);
-void printGraphShortestPathVizToFile(Graph, std::vector<std::size_t>, std::string);
+void printGraphShortestPathVizToFile(Graph, std::vector<unsigned long>, std::string);
+void printGraphViz(Graph);
 
 // cli printers
-void printGraphShortestPath(Graph, std::vector<int>, std::vector<std::size_t>);
-void printGraph(Graph);
+void printGraphShortestPath(Graph, std::vector<long>, std::vector<std::size_t>);
+void printLedaGraphShortestPath(leda::graph&, leda::node_array<long>&, leda::node_array<leda::edge>&);
 
 #endif //BF_GRAPH_PRINTER_H

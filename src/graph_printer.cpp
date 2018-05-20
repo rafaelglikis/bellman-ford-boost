@@ -21,7 +21,7 @@ void edge_writer<Graph, ParentMap>::operator() (std::ostream & out, const Edge &
     out << "]";
 }
 
-void printGraphShortestPathVizToFile(Graph g, std::vector<std::size_t> pred, std::string filename)
+void printGraphShortestPathVizToFile(Graph g, std::vector<unsigned long> pred, std::string filename)
 {
     EdgeIterator ei, ei_end;
 
@@ -90,7 +90,7 @@ void printGraphViz(Graph G)
     std::cout << "}" << std::endl;
 }
 
-void printGraphShortestPath(Graph g, std::vector<int> distance, std::vector<std::size_t> pred)
+void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<std::size_t> pred)
 {
     const int INF = (std::numeric_limits < int >::max)();
 
@@ -101,8 +101,20 @@ void printGraphShortestPath(Graph g, std::vector<int> distance, std::vector<std:
         } else {
             std::cout << ": " << std::setw(6) << distance[i];
         }
+        if (pred[i]!=i) {
+            std::cout << " " << "[" << std::setw(4) << pred[i]  << "]";
+        }
+        std::cout << std::endl;
+    }
+}
 
-        std::cout << " " << "[" << std::setw(4) << pred[i]  << "]";
+void printLedaGraphShortestPath(leda::graph& g, leda::node_array<long>& ledaDist, leda::node_array<leda::edge>& ledaPred)
+{
+    leda::node v;
+    forall_nodes(v,g) {
+        g.print_node(v);
+        std::cout << std::setw(10) << ledaDist[v] << "  ";
+        if(ledaPred[v] !=nil) g.print_edge(ledaPred[v]);
         std::cout << std::endl;
     }
 }

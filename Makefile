@@ -5,13 +5,10 @@ LIB=-lleda
 SOURCES=$(wildcard src/*.cpp)
 OBJECTS=$(SOURCES:src/%.cpp=build/%.o)
 
-BIN=build/bf
-
+BIN=bin/bf
 INCL='/usr/include/boost'
 LEDA_ROOT=/usr/local/LEDA
 LEDA_INCL=$(LEDA_ROOT)/incl
-
-#----------------------------
 
 executable: $(BIN)
 
@@ -24,7 +21,5 @@ build/%.o: src/%.cpp incl/%.h
 build/main.o: src/main.cpp
 	$(CC) -c $(FLAGS) -I $(INCL) -I $(LEDA_INCL) $< -o $@
 
-
-.PHONY: clean
 clean:
 	rm build/*.o $(BIN)

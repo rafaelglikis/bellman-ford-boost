@@ -8,17 +8,26 @@
 #include <boost/graph/bellman_ford_shortest_paths.hpp>
 
 #include "../incl/graph_creator.h"
+#include "../incl/bellman_ford.h"
 #include "../incl/graph_printer.h"
 #include "../incl/bellman_ford_test.h"
-#include "../incl/bellman_ford_benchmark.h"
 
-using namespace boost;
 
 const int INF = (std::numeric_limits < int >::max)();
 
+void usageMessage(std::string exe) 
+{
+    std::cout << "Usage:" << std::endl;
+    std::cout << "  " << exe << " run random <nodes>" << std::endl;
+    std::cout << "  " << exe << " run grid <nodes>" << std::endl;
+    std::cout << "  " << exe << " benchmark grid <nodes>" << std::endl;
+    std::cout << "  " << exe << " benchmark random <nodes>" << std::endl;
+    std::cout << "  " << exe << " test" << std::endl;
+}
+
 int main(int argc, char **argv)
 {
-    if (argc==2 && (std::string(argv[1])=="test")){
+    if (argc==2 && (std::string(argv[1])=="test")) {
         std::cout << "[i] Running all tests" << std::endl;
         std::cout << "[i] Testing Graph with positive weights" << std::endl;
         testBF(createTestGraph());
@@ -26,74 +35,78 @@ int main(int argc, char **argv)
         testBF(createPositiveTestGraph());
         std::cout << "[i] Testing Graph with negative cycle" << std::endl;
         testBF(createTestGraphWithNegativeCycle());
-    
-        return 0;
-
-    } else if (argc==2 && std::string(argv[1])=="benchmark"){
-        std::cout << "[i] Running all benchmarks" << std::endl;
-        std::cout << "[i] Random Graphs" << std::endl;
-        std::cout << "[i] Graph 1000x20*1000*log(1000)" << std::endl;
-        benchmark(createRandomGraph(1000, 20*1000*log(1000), -100, 10000));
-        std::cout << "[i] Graph 4000x20*4000*log(4000)" << std::endl;
-        benchmark(createRandomGraph(4000, 20*4000*log(4000), -100, 10000));
-        std::cout << "[i] Graph 9000x20*9000*log(9000)" << std::endl;
-        benchmark(createRandomGraph(9000, 20*9000*log(9000), -100, 10000));
-
-        std::cout << "[i] Grid Graphs" << std::endl;
-        std::cout << "[i] Graph 100*100" << std::endl;
-        benchmark(createGridGraph(100, -100, 10000));
-        std::cout << "[i] Graph 200x200" << std::endl;
-        benchmark(createGridGraph(200, -100, 10000));
-        std::cout << "[i] Graph 300x300" << std::endl;
-        benchmark(createGridGraph(200, -100, 10000));
-
-        return 0;
-    }
-
-    Graph g = createTestGraph();
-    
-    WeightMap weight_pmap = get(&EdgeProperties::weight, g);
-    unsigned long  n_vertices = num_vertices(g);
-
-    std::vector<int> distance(n_vertices, INF);
-    std::vector<std::size_t> b_pred(n_vertices);
-    for (std::size_t i = 0; i < n_vertices; ++i) b_pred[i] = i;
-    distance[0] = 0;
-
-    bool r = bellman_ford_shortest_paths(g, n_vertices, weight_pmap,
-                                         &b_pred[0], &distance[0],
-                                         closed_plus<int>(),
-                                         std::less<int>(),
-                                         default_bellman_visitor());
-
-
-    if (r) {
-        printGraphShortestPath(g, distance, b_pred);
+        std::cout << "[i] Random Graph" << std::endl;
+        testBF(createRandomGraph(1000, 20*1000*log10(1000), -100, 10000));
+        std::cout << "[i] Grid Graph" << std::endl;
+        testBF(createGridGraph(100,-100, 10000));
+    } else if (argc==4){
+        int nodes = std::stoi(argv[3]);
+        int edges = 20*nodes*log10(nodes);
+        if (std::string(argv[1])=="benchmark" && std::string(argv[2])=="random") {
+            std::cout << "[i] Benchmark random graph " << nodes << "x" << edges << std::endl;
+            benchmark(createRandomGraph(nodes, edges, -100, 10000));
+        } else if (std::string(argv[1])=="benchmark" && std::string(argv[2])=="grid") {
+            std::cout << "[i] Benchmark grid graph " << nodes << "x" << nodes << std::endl;
+            benchmark(createGridGraph(nodes, -100, 10000));
+        } else if (std::string(argv[1])=="run" && std::string(argv[2])=="random") {
+            std::cout << "[i] Random graph " << nodes << "x" << edges << std::endl;
+            Graph G = createRandomGraph(nodes, edges, -100, 10000);
+            unsigned long  n_vertices = num_vertices(G);
+            std::vector<unsigned long> mPred(n_vertices);
+            std::vector<long> mDistance(n_vertices, INF);
+            WeightMap weight_pmap = get(&EdgeProperties::weight, G);
+            for (std::size_t i = 0; i < n_vertices; ++i) mPred[i] = i;
+            printGraphVizToFile(G, "graph.dot");
+            bool res = bellmanFord(G, 0, weight_pmap, mPred, mDistance);
+             if (!res) {
+                std::cout << "negative cycle detected" << std::endl;
+            }
+            printGraphShortestPath(G, mDistance, mPred);
+            printGraphShortestPathVizToFile(G, mPred, "graph.dot");
+        } else if (std::string(argv[1])=="run" && std::string(argv[2])=="grid") {
+            std::cout << "[i] Grid graph " << nodes << "x" << nodes << std::endl;
+            Graph G = createGridGraph(nodes,-100, 10000);
+            unsigned long  n_vertices = num_vertices(G);
+            std::vector<unsigned long> mPred(n_vertices);
+            std::vector<long> mDistance(n_vertices, INF);
+            WeightMap weight_pmap = get(&EdgeProperties::weight, G);
+            for (std::size_t i = 0; i < n_vertices; ++i) mPred[i] = i;
+            printGraphVizToFile(G, "graph.dot");
+            bool res = bellmanFord(G, 0, weight_pmap, mPred, mDistance);
+            if (!res) {
+                std::cout << "negative cycle detected" << std::endl;
+            }
+            printGraphShortestPath(G, mDistance, mPred);
+            printGraphShortestPathVizToFile(G, mPred, "shortest-path.dot");
+        }
     } else {
-        std::cout << "negative cycle detected" << std::endl;
+        usageMessage(argv[0]);
     }
+    // int nodes = 5;
+    // std::cout << "[i] Grid graph " << nodes << "x" << nodes << std::endl;
+    // Graph G = createGridGraph(nodes,-100, 10000);
+    // unsigned long  n_vertices = num_vertices(G);
+    // std::vector<unsigned long> mPred(n_vertices);
+    // std::vector<long> mDistance(n_vertices, INF);
+    // WeightMap weight_pmap = get(&EdgeProperties::weight, G);
+    // for (std::size_t i = 0; i < n_vertices; ++i) mPred[i] = i;
+    // printGraphVizToFile(G, "graph.dot");
+    // bool res = bellmanFord(G, 0, weight_pmap, mPred, mDistance);
+    // if (!res) {
+    //     std::cout << "negative cycle detected" << std::endl;
+    // }
+    // printGraphShortestPath(G, mDistance, mPred);
+    // printGraphShortestPathVizToFile(G, mPred, "shortest-path.dot");
 
-    leda::GRAPH<unsigned, long>  G = convertToLeda(g);
-    leda::edge_array<long> cost = G.edge_data();
-    leda::node_array<leda::edge> pred(G);  
-    leda::node_array<long> dist(G);
 
-    leda::node startNode = G.first_node();
+    // leda::GRAPH<unsigned, long>  g = convertToLeda(G);
+    // leda::edge_array<long> ledaWeight = g.edge_data();
+    // leda::node_array<leda::edge> ledaPred(g);  
+    // leda::node_array<long> ledaDist(g);
+    // leda::node ledaStartNode = g.first_node();
+    // // Running
+    // bool r_leda = leda::BELLMAN_FORD_B_T(g, ledaStartNode, ledaWeight, ledaDist, ledaPred);
+    // printLedaGraphShortestPath(g, ledaDist, ledaPred);
 
-    bool no_negative_cycle = leda::BELLMAN_FORD_B_T(G, startNode, cost, dist, pred);
-
-    leda::node v;
-    forall_nodes(v,G) {
-        G.print_node(v);
-        if (pred[v]==nil) {
-            std::cout << " is unreachable." << std::endl;
-        }
-        else {
-            std::cout << " " << dist[v] << " "; 
-            G.print_edge(pred[v]);
-            std::cout << std::endl;
-        }
-    }
-
-    return 0;
+    // return 0;
 }

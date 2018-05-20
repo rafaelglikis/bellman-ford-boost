@@ -144,7 +144,7 @@ leda::GRAPH<unsigned, long> convertToLeda(Graph g)
 
     VertexIterator ni, ni_end;
     for (tie(ni, ni_end) = vertices(g); ni != ni_end; ++ni) {
-        newVertices[*ni] = newGraph.new_node();
+        newVertices[*ni] = newGraph.new_node(*ni);
     }
 
     EdgeIterator ei, ei_end;

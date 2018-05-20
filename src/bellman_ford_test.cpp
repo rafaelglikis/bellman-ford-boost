@@ -1,123 +1,103 @@
 #include "../incl/bellman_ford_test.h"
 #include "../incl/bellman_ford.h"
 
+void testAll()
+{
+    std::cout << "[i] Running all tests" << std::endl;
+    std::cout << "[i] Testing Graph with positive weights" << std::endl;
+    testBF(createTestGraph());
+    std::cout << "[i] Testing Graph with positive and negative weights" << std::endl;
+    testBF(createPositiveTestGraph());
+    std::cout << "[i] Testing Graph with negative cycle" << std::endl;
+    testBF(createTestGraphWithNegativeCycle());
+    std::cout << "[i] Random Graph" << std::endl;
+    testBF(createRandomGraph(1000, 20*1000*log10(1000), -100, 10000));
+    std::cout << "[i] Grid Graph" << std::endl;
+    testBF(createGridGraph(100,-100, 10000));
+}
 
 void testBF(Graph G)
 {
     const int INF = (std::numeric_limits < int >::max)();
-
-    // **************************************************** RAFA
     // Preprocessing
     unsigned long  n_vertices = num_vertices(G);
     std::vector<unsigned long> pred(n_vertices);
     std::vector<long> dist(n_vertices, INF);
-    WeightMap weight_pmap = get(&EdgeProperties::weight, G);
-    for (std::size_t i = 0; i < n_vertices; ++i) pred[i] = i;
+    WeightMap weight = get(&EdgeProperties::weight, G);
     printGraphVizToFile(G, "graph.dot");
     // Running
-    bool r_rafa = bellmanFord(G, 0, weight_pmap, pred, dist);
-
-    // **************************************************** LEDA
-    // Preprocessing
-    leda::GRAPH<unsigned, long>  g = convertToLeda(G);
-    leda::edge_array<long> ledaWeight = g.edge_data();
-    leda::node_array<leda::edge> ledaPred(g);  
-    leda::node_array<long> ledaDist(g);
-    leda::node ledaStartNode = g.first_node();
-    // Running
-    bool r_leda = leda::BELLMAN_FORD_B_T(g, ledaStartNode, ledaWeight, ledaDist, ledaPred);
-
-    // **************************************************** TESTS
-    // setup
-    int i=0;
-    leda::node v;
-    // negative cycle test
-    if (r_rafa != r_leda) {
-        std::cout << "[-] Test negative cycle failed.." << std::endl;
-        return;
-    } 
-    std::cout << "[+] Test negative cycle OK!" << std::endl;
-    // dist test
-    forall_nodes(v, g) {
-        if (dist[i]!=ledaDist[v] && dist[i]!=INF && ledaDist[v]!=0) {
-            std::cout << "[-] Test distances failed.." << std::endl;
-            std::cout << "    Expected: " << ledaDist[v] <<  " Actual: " << dist[i] << " Vertex: " << i << std::endl;
-            return;
-        }
-        ++i;
-    }
-    std::cout << "[+] Test distances OK!" << std::endl;
-    // dist test
-    i=0;
-    forall_nodes(v, g) {
-        if (ledaPred[v] != nil && pred[i] != g.source(ledaPred[v])->id()) {
-            std::cout << "[-] Test pred failed.." << std::endl;
-            std::cout << "    Expected: " << g.source(ledaPred[v])->id() <<  " Actual: " << pred[i] << " Vertex: " << i << std::endl;
-            return;
-        }
-        ++i;
-    }
-    std::cout << "[+] Test pred OK!" << std::endl;
+    bool r_rafa = bellmanFord(G, 0, weight, pred, dist);
+    CHECK_BELLMAN_FORD(G, 0, weight, pred, dist);
+    std::cout << "[+] Test OK!" << std::endl;
 }
 
-void benchmark(Graph g)
+void benchmark(Graph g, int times)
 {
-    // **************************************************** BOOST
-    // Preprocessing
+    std::cout << "[i] " << times << " times" << std::endl;
+    // setup
     unsigned long  N = num_vertices(g);
+    // **************************************************** BOOST
+    // init
     WeightMap weight_pmap = get(&EdgeProperties::weight, g);
-    std::vector<int> distance(N, (std::numeric_limits < short >::max)());
-    std::vector<std::size_t> parent(N);
-    for (unsigned long i = 0; i < N; ++i) parent[i] = i;
-    int startNode = 0; //randomRange(0, (int)N);
-    distance[0] = 0;
+    std::vector<int> b_dist(N, (std::numeric_limits < short >::max)());
+    std::vector<std::size_t> b_pred(N);
     // Running
+    bool r_boost;
     clock_t begin = clock();
-    bool r_boost = boost::bellman_ford_shortest_paths(
-        g, int(N), weight_pmap, 
-        &parent[0], &distance[0], 
-        boost::closed_plus<int>(),
-        std::less<int>(), 
-        boost::default_bellman_visitor());
+    for(int i = 0; i<times ; ++i){
+        for (unsigned long i = 0; i < N; ++i) b_pred[i] = i;
+        int s = (times == 1) ? 0 : randomRange(0, (int)N);
+        b_dist[s] = 0;
+        r_boost = boost::bellman_ford_shortest_paths(
+            g, int(N), weight_pmap, 
+            &b_pred[0], &b_dist[0], 
+            boost::closed_plus<int>(),
+            std::less<int>(), 
+            boost::default_bellman_visitor());
+    }    
     clock_t end = clock();
-    double elapsed_secs_boost = double(end- begin) / CLOCKS_PER_SEC;
+    double elapsed_secs_boost = double(end-begin) / CLOCKS_PER_SEC / times;
     // Info
-    std::cout << "      Time elapsed boost: " << elapsed_secs_boost << " seconds";
+    std::cout << "      Average time boost: " << elapsed_secs_boost << " seconds";
     if(!r_boost) std::cout << " (negative cycle)" << std::endl;
     else std::cout << std::endl;
     
     // **************************************************** LEDA
     // Preprocessing
     leda::GRAPH<unsigned, long>  G = convertToLeda(g);
-    leda::edge_array<long> ledaWeight = G.edge_data();
-    leda::node_array<leda::edge> ledaPred(G);  
-    leda::node_array<long> ledaDist(G);
-    leda::node ledaStartNode = G.first_node();
+    leda::edge_array<long> l_weight = G.edge_data();
+    leda::node_array<leda::edge> l_pred(G);  
+    leda::node_array<long> l_dist(G);
     // Running
+    bool r_leda;
     begin = clock();
-    bool r_leda = leda::BELLMAN_FORD_B_T(
-        G, ledaStartNode, ledaWeight, ledaDist, ledaPred);
+    for(int i = 0; i<times ; ++i) {    
+        leda::node s =  (times == 1) ? G.first_node() : G.choose_node();
+        r_leda = leda::BELLMAN_FORD_B_T(G, s, l_weight, l_dist, l_pred);
+    }
     end = clock();
     double elapsed_secs_leda = double(end- begin) / CLOCKS_PER_SEC;
     // Info
-    std::cout << "      Time elapsed leda: " << elapsed_secs_leda << " seconds";
+    std::cout << "      Average time leda: " << elapsed_secs_leda << " seconds";
     if(!r_leda) std::cout << " (negative cycle)" << std::endl;
     else std::cout << std::endl;
 
     // **************************************************** RAFA
     // Preprocessing
-    std::vector<unsigned long> mParent(N);
+    std::vector<unsigned long> pred(N);
     std::vector<long> mDistance(N, (std::numeric_limits < short >::max)());
-    for (unsigned long i = 0; i < N; ++i) {
-        mParent[i] = i;
-    }
     // Running
     begin = clock();
-    bool r_rafa = bellmanFord(g, 0, weight_pmap, mParent, mDistance);
+    bool r_rafa;
+    for(int i = 0; i<times ; ++i) {
+        r_rafa = bellmanFord(g, 0, weight_pmap, pred, mDistance);
+    }
+
     end = clock();
+    CHECK_BELLMAN_FORD(g, 0, weight_pmap, pred, mDistance); // Checking only the last result
     double elapsed_secs_rafa = double(end - begin) / CLOCKS_PER_SEC;
     // Info
-    std::cout << "      Time elapsed rafa: " << elapsed_secs_rafa << " seconds";
+    std::cout << "      Average time rafa: " << elapsed_secs_rafa << " seconds";
     if(!r_rafa) std::cout << " (negative cycle)" << std::endl;
     else std::cout << std::endl;
 }

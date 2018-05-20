@@ -1,17 +1,12 @@
 #ifndef BF_GRAPH_PRINTER_H
 #define BF_GRAPH_PRINTER_H
 
-#include <boost/config.hpp>
 #include <vector>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/bellman_ford_shortest_paths.hpp>
 
 #include "graph_creator.h"
-
-
 
 template < typename Graph, typename ParentMap >
 struct edge_writer
@@ -32,7 +27,7 @@ void printGraphShortestPathVizToFile(Graph, std::vector<unsigned long>, std::str
 void printGraphViz(Graph);
 
 // cli printers
-void printGraphShortestPath(Graph, std::vector<long>, std::vector<std::size_t>);
+void printGraphShortestPath(Graph, std::vector<long>, std::vector<unsigned long>,  std::vector<int>);
 void printLedaGraphShortestPath(leda::graph&, leda::node_array<long>&, leda::node_array<leda::edge>&);
 
 #endif //BF_GRAPH_PRINTER_H

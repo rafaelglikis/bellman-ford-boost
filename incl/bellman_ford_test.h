@@ -7,10 +7,9 @@
 #include <boost/graph/bellman_ford_shortest_paths.hpp>
 #include <LEDA/graph/templates/shortest_path.h>
 
-#define RUNTIMES 10
-
 // Tests
+void testAll();
 void testBF(Graph g);
-void benchmark(Graph);
+void benchmark(Graph, int times);
 
 #endif //BF_BELLMAN_FORD_TEST_CPP_H

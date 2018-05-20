@@ -12,5 +12,6 @@ inline void updatePred(const Graph&, const int&, std::vector<bool>&,
 
 inline void dfs(const Graph&, const int&, std::vector<bool>&);
 
+std::vector<int> CHECK_BELLMAN_FORD(const Graph&, const int&, const WeightMap&, std::vector<unsigned long>&, std::vector<long>&);
 
 #endif //BF_BELLMAN_FORD

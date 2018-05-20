@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
 #include "../incl/graph_printer.h"
 
 template < typename Graph, typename Parent >
@@ -90,20 +94,27 @@ void printGraphViz(Graph G)
     std::cout << "}" << std::endl;
 }
 
-void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<std::size_t> pred)
+void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<unsigned long> pred, std::vector<int> label)
 {
     const int INF = (std::numeric_limits < int >::max)();
 
+    std::cout << std::setw(6) << "node" 
+        << std::setw(10) << "dist" 
+        << std::setw(7) << "pred" 
+        << std::setw(5) << " label" << std::endl;
+
     for (int i = 0; i < num_vertices(g); ++i) {
         std::cout << "[" << std::setw(4) << i << "]";
-        if (distance[i] == INF){
-            std::cout << ": " << std::setw(6) << "Inf";
-        } else {
-            std::cout << ": " << std::setw(6) << distance[i];
-        }
-        if (pred[i]!=i) {
-            std::cout << " " << "[" << std::setw(4) << pred[i]  << "]";
-        }
+        if (distance[i] == INF) std::cout << std::setw(10) << "Inf";
+        else std::cout << std::setw(10) << distance[i];
+        
+        if (pred[i]!=i) std::cout << " " << "[" << std::setw(4) << pred[i]  << "]";
+        else std::cout << std::setw(7) << "";
+        
+        if (label[i]==0) std::cout << std::setw(5) << "Vf";
+        else if(label[i]<0) std::cout << std::setw(5) << "V-";
+        else if(label[i]>0) std::cout << std::setw(5) << "V+";
+        
         std::cout << std::endl;
     }
 }

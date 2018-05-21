@@ -1,3 +1,0 @@
-/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/rafael/Desktop/algo-eng-bellman-ford/cmake-build-debug/CMakeFiles/hw2.dir

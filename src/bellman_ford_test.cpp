@@ -1,6 +1,18 @@
+#include <boost/graph/bellman_ford_shortest_paths.hpp>
+#include <LEDA/graph/templates/shortest_path.h>
+
 #include "../incl/bellman_ford_test.h"
 #include "../incl/bellman_ford.h"
 
+/**
+ * Running tests for the following graphs:
+ * - regular small graph
+ * - small graph with positive edges
+ * - small graph with negative cycle
+ * - random graph with 1000 nodes and 20*1000*log(1000) edges
+ * - grid graph 100x100
+ * Using my CHECK_BELLMAN_FORD() checker
+*/
 void testAll()
 {
     std::cout << "[i] Running all tests" << std::endl;
@@ -16,6 +28,11 @@ void testAll()
     testBF(createGridGraph(100,-100, 10000));
 }
 
+/**
+ * Running my bellman ford algorithm and the checker afterwords.
+ * If problem occur program terminates.
+ * Prints the appropriate message.
+*/
 void testBF(Graph G)
 {
     const int INF = (std::numeric_limits < int >::max)();
@@ -31,6 +48,13 @@ void testBF(Graph G)
     std::cout << "[+] Test OK!" << std::endl;
 }
 
+/**
+ * Given a graph runs the 3 algorithms
+ * (boost's, leda's and mine) @param(times) times.
+ * On each iteration the algorithms are running from different start node.
+ * If times=1 then the start node is always the firstone. 
+ * Prints the average times, and if a negative cycle detected.
+*/
 void benchmark(Graph g, int times)
 {
     std::cout << "[i] " << times << " time(s)" << std::endl;
@@ -96,7 +120,6 @@ void benchmark(Graph g, int times)
         int s = (times == 1) ? 0 : randomRange(0, (int)N);
         r_rafa = bellmanFord(g, s, weight_pmap, pred, dist);
     }
-
     end = clock();
     CHECK_BELLMAN_FORD(g, 0, weight_pmap, pred, dist); // Checking only the last result
     double elapsed_secs_rafa = double(end - begin) / CLOCKS_PER_SEC / times;

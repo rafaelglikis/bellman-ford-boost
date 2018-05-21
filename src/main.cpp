@@ -13,10 +13,10 @@
 void usageMessage(std::string exe) 
 {
     std::cout << "Usage:" << std::endl;
-    std::cout << "  " << exe << " run random <nodes>" << std::endl;
-    std::cout << "  " << exe << " run grid <nodes>" << std::endl;
-    std::cout << "  " << exe << " benchmark grid <nodes>" << std::endl;
-    std::cout << "  " << exe << " benchmark <times> random <nodes>" << std::endl;
+    std::cout << "  " << exe << " run random <n>" << std::endl;
+    std::cout << "  " << exe << " run grid <n>" << std::endl;
+    std::cout << "  " << exe << " benchmark grid <n>" << std::endl;
+    std::cout << "  " << exe << " benchmark <times> random <n>" << std::endl;
     std::cout << "  " << exe << " test" << std::endl;
 }
 

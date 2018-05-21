@@ -2,11 +2,6 @@
 #define BF_GRAPH_H
 
 #include "boost/graph/adjacency_list.hpp"
-#include "boost/graph/random.hpp"
-#include "boost/random/mersenne_twister.hpp"
-#include "boost/graph/make_connected.hpp"
-#include "boost/graph/iteration_macros.hpp"
-
 #include <LEDA/graph/graph.h>
 
 struct EdgeProperties 

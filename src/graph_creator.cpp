@@ -1,5 +1,14 @@
 #include "../incl/graph_creator.h"
 
+#include "boost/graph/random.hpp"
+#include "boost/graph/make_connected.hpp"
+#include "boost/random/mersenne_twister.hpp"
+
+/**
+ * Creates a random coherent graph with 
+ * @param(vertices) vertices and approximately @param(edges) edges.
+ * On each edge assigns a random weight between @param(cost_min) @param(cost_max)
+*/
 Graph createRandomGraph(unsigned long verices, unsigned long edges, int cost_min, int cost_max)
 {
     Graph G;
@@ -25,6 +34,11 @@ Graph createRandomGraph(unsigned long verices, unsigned long edges, int cost_min
     return g;
 }
 
+/**
+ * Creates a grid graph (as requested) with nxn vertices. 
+ * On each edge assigns a random weight between @param(cost_min) @param(cost_max),
+ * besides 2 edges in the middle cycle with weight=-10000
+*/
 Graph createGridGraph(int n, int cost_min, int cost_max)
 {
     Graph G;
@@ -81,6 +95,9 @@ Graph createGridGraph(int n, int cost_min, int cost_max)
     return g;
 }
 
+/**
+ * Creates a small graph for testing purposes.
+*/
 Graph createTestGraph()
 {
     typedef std::pair < int, int >E;
@@ -99,6 +116,9 @@ Graph createTestGraph()
     return g;
 }
 
+/**
+ * Creates a small graph with positive edges for testing purposes.
+*/
 Graph createPositiveTestGraph()
 {
     typedef std::pair < int, int >E;
@@ -117,6 +137,9 @@ Graph createPositiveTestGraph()
     return g;
 }
 
+/**
+ * Creates a small graph with negative cycle for testing purposes.
+*/
 Graph createTestGraphWithNegativeCycle()
 {
     typedef std::pair < int, int >E;
@@ -137,6 +160,9 @@ Graph createTestGraphWithNegativeCycle()
     return g;
 }
 
+/**
+ * Converts the given graph to leda graph.
+*/
 leda::GRAPH<unsigned, long> convertToLeda(Graph g)
 {
     leda::GRAPH<unsigned, long> newGraph;
@@ -158,7 +184,10 @@ leda::GRAPH<unsigned, long> convertToLeda(Graph g)
     return newGraph;
 }
 
-int randomRange(int min, int max) //range : [min, max)
+/**
+ * Returns a random number in between min-max. 
+*/
+int randomRange(int min, int max)
 {
    static bool first = true;
    if (first) 

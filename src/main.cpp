@@ -6,6 +6,10 @@
 #include "../incl/graph_printer.h"
 #include "../incl/bellman_ford_test.h"
 
+
+/**
+ * Prints usage message.
+*/
 void usageMessage(std::string exe) 
 {
     std::cout << "Usage:" << std::endl;
@@ -22,7 +26,7 @@ int main(int argc, char **argv)
     if (argc==2 && (std::string(argv[1])=="test")) {
         testAll();
     } 
-    // **************************************************** BENCHMARKS
+    // **************************************************** BENCHMARK random
     else if (argc==5 && std::string(argv[1])=="benchmark" && std::string(argv[3])=="random") {
         int nodes = std::stoi(argv[4]);
         int edges = 20*nodes*log10(nodes);
@@ -31,12 +35,14 @@ int main(int argc, char **argv)
         std::cout << "[i] Benchmark random graph " << nodes << "x" << edges << std::endl;
         benchmark(G, times);
     }
+    // **************************************************** BENCHMARK grid
     else if (argc==4 && std::string(argv[1])=="benchmark" && std::string(argv[2])=="grid") {
         int nodes = std::stoi(argv[3]);
         Graph G = createGridGraph(nodes, -100, 10000);
         std::cout << "[i] Benchmark grid graph " << nodes << "x" << nodes << std::endl;
         benchmark(G, 1);
     }
+    // **************************************************** RUN
     else if (argc==4 && std::string(argv[1])=="run" && (std::string(argv[2])=="random" || std::string(argv[2])=="grid")) {
         int nodes = std::stoi(argv[3]);
         Graph G;

@@ -10,7 +10,7 @@ INCL='/usr/include/boost'
 LEDA_ROOT=/usr/local/LEDA
 LEDA_INCL=$(LEDA_ROOT)/incl
 
-executable: $(BIN)
+exe: $(BIN)
 
 $(BIN): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(BIN) $(LIB) -L $(LEDA_ROOT)

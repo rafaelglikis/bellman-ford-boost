@@ -1,16 +1,22 @@
 #include <iostream>
 #include <fstream>
-#include <iomanip>
 
 #include "../incl/graph_printer.h"
 
-template < typename Graph, typename Parent >
-edge_writer < Graph, Parent >
-make_edge_writer(const Graph & g, const Parent & p)
+/**
+ * Makes an edge writer.
+ * Source: https://www.boost.org/doc/libs/1_62_0/libs/graph/example/bellman-example.cpp 
+*/
+template <typename Graph, typename Parent>
+edge_writer <Graph, Parent> make_edge_writer(const Graph & g, const Parent & p)
 {
     return edge_writer < Graph, Parent > (g, p);
 }
 
+/**
+ * Writes an edge to the given file.
+ * Source: https://www.boost.org/doc/libs/1_62_0/libs/graph/example/bellman-example.cpp 
+*/
 template < typename Graph, typename ParentMap >
 template < typename Edge >
 void edge_writer<Graph, ParentMap>::operator() (std::ostream & out, const Edge & e) const
@@ -25,6 +31,11 @@ void edge_writer<Graph, ParentMap>::operator() (std::ostream & out, const Edge &
     out << "]";
 }
 
+
+/**
+ * Prints a graph viz script for the given graph and it's shortest paths to the given file,
+ * given the graph and the vartex predecessor vector 
+*/
 void printGraphShortestPathVizToFile(Graph g, std::vector<unsigned long> pred, std::string filename)
 {
     EdgeIterator ei, ei_end;
@@ -50,9 +61,8 @@ void printGraphShortestPathVizToFile(Graph g, std::vector<unsigned long> pred, s
 }
 
 /**
- * // http://dreampuf.github.io/GraphvizOnline/
- * @param filename
- */
+ * Prints a graph viz script for the given graph to the given file.
+*/
 void printGraphVizToFile(Graph G, std::string filename)
 {
     std::ofstream gout;
@@ -75,6 +85,9 @@ void printGraphVizToFile(Graph G, std::string filename)
     gout << "}" << std::endl;
 }
 
+/**
+ * Prints a graph viz script for the given graph.
+*/
 void printGraphViz(Graph G)
 {
     std::cout << "digraph G" << std::endl;
@@ -94,6 +107,9 @@ void printGraphViz(Graph G)
     std::cout << "}" << std::endl;
 }
 
+/**
+ * Prints the bellman ford, and checker results.
+*/
 void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<unsigned long> pred, std::vector<int> label)
 {
     const int INF = (std::numeric_limits < int >::max)();
@@ -119,6 +135,9 @@ void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<uns
     }
 }
 
+/**
+ * Prints the leda's bellman ford results. 
+*/
 void printLedaGraphShortestPath(leda::graph& g, leda::node_array<long>& ledaDist, leda::node_array<leda::edge>& ledaPred)
 {
     leda::node v;

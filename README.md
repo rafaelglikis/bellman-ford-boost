@@ -1,4 +1,4 @@
-# Algorithm Engigeering homework 2
+# Bellman Ford
 
 ## Compile
 

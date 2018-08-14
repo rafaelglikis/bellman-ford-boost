@@ -61,6 +61,33 @@ void printGraphShortestPathVizToFile(Graph g, std::vector<unsigned long> pred, s
 }
 
 /**
+ * Prints a graph viz script for the given graph and it's shortest paths to the given file,
+ * given the graph and the vartex predecessor vector
+*/
+void printGraphShortestPathViz(Graph g, std::vector<unsigned long> pred)
+{
+    EdgeIterator ei, ei_end;
+
+    std::cout << "digraph D {\n"
+                 << "  rankdir=LR\n"
+                 << "  size=\"5,3\"\n"
+                 << "  ratio=\"fill\"\n"
+                 << "  edge[style=\"bold\"]\n" << "  node[shape=\"circle\"]\n";
+
+    Vertex u,v;
+    for (tie(ei, ei_end) = edges(g); ei != ei_end; ++ei) {
+        Edge e = *ei;
+        u = source(e, g);
+        v = target(e, g);
+        std::cout << "  " << u << " -> " << v << "[label=\"" << get(get(&EdgeProperties::weight, g), e) << "\"";
+        if (pred[v] == u) std::cout << ", color=\"black\"";
+        else std::cout << ", color=\"grey\"" ;
+        std::cout << "]" << std::endl;
+    }
+    std::cout << "}" << std::endl;
+}
+
+/**
  * Prints a graph viz script for the given graph to the given file.
 */
 void printGraphVizToFile(Graph G, std::string filename)

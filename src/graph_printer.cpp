@@ -2,7 +2,7 @@
 #include <fstream>
 
 #include "../incl/graph_printer.h"
-
+#include <iomanip>
 /**
  * Makes an edge writer.
  * Source: https://www.boost.org/doc/libs/1_62_0/libs/graph/example/bellman-example.cpp 
@@ -131,20 +131,6 @@ void printGraphShortestPath(Graph g, std::vector<long> distance, std::vector<uns
         else if(label[i]<0) std::cout << std::setw(5) << "V-";
         else if(label[i]>0) std::cout << std::setw(5) << "V+";
         
-        std::cout << std::endl;
-    }
-}
-
-/**
- * Prints the leda's bellman ford results. 
-*/
-void printLedaGraphShortestPath(leda::graph& g, leda::node_array<long>& ledaDist, leda::node_array<leda::edge>& ledaPred)
-{
-    leda::node v;
-    forall_nodes(v,g) {
-        g.print_node(v);
-        std::cout << std::setw(10) << ledaDist[v] << "  ";
-        if(ledaPred[v] !=nil) g.print_edge(ledaPred[v]);
         std::cout << std::endl;
     }
 }

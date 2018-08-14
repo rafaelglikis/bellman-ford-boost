@@ -2,7 +2,6 @@
 #define BF_GRAPH_H
 
 #include "boost/graph/adjacency_list.hpp"
-#include <LEDA/graph/graph.h>
 
 struct EdgeProperties 
 {
@@ -33,6 +32,5 @@ Graph createTestGraphWithNegativeCycle();
 
 // Utilities
 int randomRange(int, int);
-leda::GRAPH<unsigned, long> convertToLeda(Graph g);
 
 #endif //BF_GRAPH_H

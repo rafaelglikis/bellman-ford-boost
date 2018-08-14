@@ -1,8 +1,7 @@
 #include <boost/graph/bellman_ford_shortest_paths.hpp>
-#include <LEDA/graph/templates/shortest_path.h>
-
 #include "../incl/bellman_ford_test.h"
 #include "../incl/bellman_ford.h"
+#include <iostream>
 
 /**
  * Running tests for the following graphs:
@@ -88,26 +87,7 @@ void benchmark(Graph g, int times)
     std::cout << "      Average time boost: " << elapsed_secs_boost << " seconds";
     if(!r_boost) std::cout << " (negative cycle)" << std::endl;
     else std::cout << std::endl;
-    
-    // **************************************************** LEDA
-    // init
-    leda::GRAPH<unsigned, long>  G = convertToLeda(g);
-    leda::edge_array<long> l_weight = G.edge_data();
-    leda::node_array<leda::edge> l_pred(G);  
-    leda::node_array<long> l_dist(G);
-    // run
-    bool r_leda;
-    begin = clock();
-    for(i = 0; i<times ; ++i) {    
-        leda::node s =  (times == 1) ? G.first_node() : G.choose_node();
-        r_leda = leda::BELLMAN_FORD_B_T(G, s, l_weight, l_dist, l_pred);
-    }
-    end = clock();
-    double elapsed_secs_leda = double(end- begin) / CLOCKS_PER_SEC / times;
-    // Info
-    std::cout << "      Average time leda: " << elapsed_secs_leda << " seconds";
-    if(!r_leda) std::cout << " (negative cycle)" << std::endl;
-    else std::cout << std::endl;
+
 
     // **************************************************** RAFA
     // init
@@ -121,7 +101,6 @@ void benchmark(Graph g, int times)
         r_rafa = bellmanFord(g, s, weight_pmap, pred, dist);
     }
     end = clock();
-    CHECK_BELLMAN_FORD(g, 0, weight_pmap, pred, dist); // Checking only the last result
     double elapsed_secs_rafa = double(end - begin) / CLOCKS_PER_SEC / times;
     // Info
     std::cout << "      Average time rafa: " << elapsed_secs_rafa << " seconds";

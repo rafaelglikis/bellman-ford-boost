@@ -1,31 +1,43 @@
-# Algorithm Engigeering homework 2
+# Bellman Ford for boost graph library
+
+# Requirements
+* boost graph library
+* cmake
 
 ## Compile
 
-    make
+    mkdir cmake-build
+    cd cmake-build
+    cmake ..
+    cd ..
+    cmake --build cmake-build
 
-## Test
+## Usage
 
-    ./bin/bf test
+    bf ACTION(S)* GRAPH(S)* [OPTIONS]*
 
-## Execute
+Test:
 
-### run
+      --test                run all tests
 
-Run the program with random graph and specified size
+Actions:
 
-    ./bin/bf run random <nodes>
+      --run                 runs with specified graph
+      --benchmark           runs benchmark with specified graph
 
-Run the program with random grid and specified size
-    
-    ./bin/bf run grid <nodes>
-    
-## benchmarks
+Graphs:
 
-Run the benchmark with random graph, specified size and iterations
+      --random              random connected graph
+      --grid                modified grid graph with negative cycle (worst case for bellman ford)
 
-      ./bin/bf benchmark <times> random <nodes>
-    
-Run the benchmark with grid graph and specified size 
+Options:
 
-    ./bin/bf benchmark grid <nodes>
+      -n [ --nodes ] arg    number of nodes
+      -e [ --edges ] arg    number of edges
+      -t [ --times ] arg    number of times to run the benchmark
+      --min-weight arg      number of times to run the benchmark
+      --max-weight arg      number of times to run the benchmark
+
+Help:
+
+      --help                produce help message

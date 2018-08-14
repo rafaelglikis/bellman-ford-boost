@@ -161,30 +161,6 @@ Graph createTestGraphWithNegativeCycle()
 }
 
 /**
- * Converts the given graph to leda graph.
-*/
-leda::GRAPH<unsigned, long> convertToLeda(Graph g)
-{
-    leda::GRAPH<unsigned, long> newGraph;
-    std::vector<leda::node> newVertices(num_vertices(g));
-
-    VertexIterator ni, ni_end;
-    for (tie(ni, ni_end) = vertices(g); ni != ni_end; ++ni) {
-        newVertices[*ni] = newGraph.new_node(*ni);
-    }
-
-    EdgeIterator ei, ei_end;
-    for (tie(ei, ei_end) = edges(g); ei != ei_end; ++ei) {
-        leda::edge e = newGraph.new_edge(
-            newVertices[source(*ei, g)], 
-            newVertices[target(*ei, g)], 
-            g[*ei].weight);
-    }
-
-    return newGraph;
-}
-
-/**
  * Returns a random number in between min-max. 
 */
 int randomRange(int min, int max)

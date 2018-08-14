@@ -28,6 +28,5 @@ void printGraphShortestPathVizToFile(Graph, std::vector<unsigned long>, std::str
 
 // cli printers
 void printGraphShortestPath(Graph, std::vector<long>, std::vector<unsigned long>,  std::vector<int>);
-void printLedaGraphShortestPath(leda::graph&, leda::node_array<long>&, leda::node_array<leda::edge>&);
 
 #endif //BF_GRAPH_PRINTER_H

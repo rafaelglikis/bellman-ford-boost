@@ -28,26 +28,26 @@ The first is an implementation of the belman ford algorithm based on LEDA functi
 
 Test:
 
-      --test                run all tests
+    --test                run all tests
 
 Actions:
 
-      --run                 runs with specified graph
-      --benchmark           runs benchmark with specified graph
+    --run                 runs with specified graph
+    --benchmark           runs benchmark with specified graph
 
 Graphs:
 
-      --random              random connected graph
-      --grid                modified grid graph with negative cycle (worst case for bellman ford)
+    --random              random connected graph
+    --grid                modified grid graph with negative cycle (worst case for bellman ford)
 
 Options:
 
-      -n [ --nodes ] arg    number of nodes
-      -e [ --edges ] arg    number of edges
-      -t [ --times ] arg    number of times to run the benchmark
-      --min-weight arg      number of times to run the benchmark
-      --max-weight arg      number of times to run the benchmark
+    -n [ --nodes ] arg    number of nodes
+    -e [ --edges ] arg    number of edges
+    -t [ --times ] arg    number of times to run the benchmark
+    --min-weight arg      number of times to run the benchmark
+    --max-weight arg      number of times to run the benchmark
 
 Help:
 
-      --help                produce help message
+    --help                produce help message
